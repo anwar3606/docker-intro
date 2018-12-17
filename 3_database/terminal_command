@@ -1,0 +1,12 @@
+# To Build image
+docker build . -t database
+
+# To Run image
+docker run -it -p 8888:80 database
+
+#or in the background
+docker run -d -p 8888:80 database
+
+#pull mysql database
+docker pull mysql
+

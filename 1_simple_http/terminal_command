@@ -1,0 +1,8 @@
+# To Build image
+docker build . -t simplehtml
+
+# To Run image
+docker run -it -p 8888:80 simplehtml
+
+#or in the background
+docker run -d -p 8888:80 simplehtml
