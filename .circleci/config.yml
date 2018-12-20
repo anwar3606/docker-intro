@@ -6,4 +6,4 @@ jobs:
      - checkout
 
      # build the application image
-     - run: docker build -t 1_simple_http/
+     - run: docker build 1_simple_http/ -t simplehttp
