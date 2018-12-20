@@ -1,7 +1,7 @@
 version: '3.3'
 
 services:
-   mysql_db:
+   db:
      image: mysql:5.7
      volumes:
        - /tmp/database:/var/lib/mysql
@@ -11,30 +11,14 @@ services:
        MYSQL_USER: wordpress
        MYSQL_PASSWORD: wordpress
 
-
    wordpress:
      depends_on:
-       - mysql_db
+       - db
      image: wordpress:latest
      ports:
        - "8000:80"
      restart: always
      environment:
-       WORDPRESS_DB_HOST: mysql_db:3306
+       WORDPRESS_DB_HOST: db:3306
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: wordpress
-
-
-   phpmyadmin:
-    depends_on: 
-      - mysql_db
-    image: phpmyadmin/phpmyadmin
-    container_name: wordpress_phpmyadmin
-    restart: always
-    environment:
-       MYSQL_ROOT_PASSWORD: wordpress
-       PMA_HOST: mysql_db 
-       PMA_PORT: 3306
-       PMA_ARBITRARY: 1 
-    ports: 
-      - 8181:80
