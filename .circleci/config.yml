@@ -7,8 +7,6 @@ jobs:
 
      # build the application image
      - run: docker build 1_simple_http/ -t simplehttp
-   steps:
-     - checkout
-
+     
      # build the application image
      - run: docker build 2_simple_php/ -t simplephp
