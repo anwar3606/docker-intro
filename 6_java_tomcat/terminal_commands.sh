@@ -1,5 +1,7 @@
 Project: https://github.com/tongueroo/demo-java
 
+#Create war
+mvn package
 
 # To Build image
 docker build . -t myjavaapp
